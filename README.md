@@ -6,11 +6,11 @@ Sounds familiar?
 
 This skill is a thinking partner for that whole process. It walks you through a full behavioral design cycle, recommends frameworks at each step with reasoning, and supports your decisions. It's not a replacement for expertise — it's a scaffold that helps you apply what you know more systematically.
 
-Built for UX researchers, product managers, and behavioral designers who need key BeSci frameworks all in one place.
+Built for UX researchers, product managers, and behavioral designers who need frameworks all in one place.
 
 ## What It Does
 
-The skill walks you through 8 stages of a behavioral design cycle. At each stage, it asks you questions, recommends a framework with reasoning, and produces a structured output before moving on to the next step.
+The skill walks you through 8 stages of a behavioral design cycle. At each stage, it asks you questions, recommends a framework with reasoning, and produces a structured output before moving on.
 
 | Stage | What happens | What you get |
 |---|---|---|
@@ -98,7 +98,9 @@ Either way, Claude will open with something like this:
 
 > I'm a behavioral design thinking partner. I'll help you work through a full design cycle — defining the target behavior, finding what actually stops people, designing an intervention, and planning a test.
 >
-> Tell me what you can:
+> Before we start: would you like a quick refresher on the foundational ideas behind behavioral design (how people actually make decisions, why context matters), or jump straight to your problem? Either is fine — the process is the same.
+>
+> If you're ready to start, tell me what you can:
 >
 > 1. What behavior are you trying to change, start, or stop?
 > 2. Who needs to do it, and roughly how many?
@@ -115,13 +117,26 @@ From there, the skill takes you through the process one stage at a time. It'll s
 
 ## Frameworks Used
 
-**Process design:** DECIDE (Wendel), SIDE (Wallaert). The 8-stage backbone synthesizes both with Irrational Labs process tools.
+The skill routes you to the right framework based on your context — digital product, physical environment, communication, or complex service — and explains the trade-offs when two frameworks could fit. Barrier→strategy mapping tables and a design direction bridge connect diagnosis to technique.
 
-**Barrier diagnosis:** COM-B / BCW (Michie et al.), 3B (Irrational Labs), B=MAP (Fogg), CREATE (Wendel), Wallaert Pressure Map. The skill routes you to the right one based on your context — digital product, physical environment, communication, complex service — and explains the trade-offs when two frameworks could fit.
+| Group | Framework | What it does | Source |
+|---|---|---|---|
+| Process design | **DECIDE** | Full behavioral design cycle: Define → Explore → Craft → Implement → Determine → Evaluate | Wendel (2020), *Designing for Behavior Change* |
+| Process design | **SIDE** | Strategy → Insights → Design → Evaluation, with named deliverables at each stage | Wallaert (2019), *Start at the End* |
+| Barrier diagnosis | **COM-B / BCW** | Six components: Physical/Psychological Capability, Physical/Social Opportunity, Automatic/Reflective Motivation | Michie, van Stralen & West (2011); Michie, Atkins & West (2014) |
+| Barrier diagnosis | **3B** | Behavior + Barriers + Benefits.| Irrational Labs (2019) |
+| Barrier diagnosis | **B=MAP** | Behavior = Motivation × Ability × Prompt. | Fogg (2009, 2020), *Tiny Habits* |
+| Barrier diagnosis | **CREATE** | Six-step action funnel: Cue → Reaction → Evaluation → Ability → Timing → Experience | Wendel (2020) |
+| Barrier diagnosis | **Wallaert Pressure Map** | Maps competing promoting and inhibiting pressures on a behavior | Wallaert (2019) |
+| Intervention design | **EAST** | Four design principles: Easy, Attractive, Social, Timely. Used as design-quality cross-check | Behavioural Insights Team (2014, updated 2024) |
+| Intervention design | **MINDSPACE** | Nine influence effects: Messenger, Incentives, Norms, Defaults, Salience, Priming, Affect, Commitments, Ego | Dolan, Hallsworth, Halpern, King & Vlaev (2010) |
+| Intervention design | **BCW Intervention Functions + BCTs** | Evidence-based mapping: 9 Intervention Functions → 93 Behaviour Change Techniques, linked to COM-B barriers | Michie, Atkins & West (2014) |
+| Sustainability & motivation | **SDT** | Three basic psychological needs (autonomy, competence, relatedness) + six-stage motivation continuum from amotivation to intrinsic | Deci & Ryan (2000) |
+| Ethics & filtering | **APEASE** | Six-criteria filter: Affordable, Practicable, Effective & cost-effective, Acceptable, Side-effects/safety, Equity | Michie, Atkins & West (2014) |
+| Ethics & filtering | **Regret Test** | Would the user, on reflection, judge themselves better off? | Adapted from Thaler & Sunstein (2008), *Nudge* |
+| Ethics & filtering | **Social norm backfire checklist** | 8 boundary conditions before using descriptive norms (prevalence, in-group, observability, boomerang risk, etc.) | Cialdini (2003, 2006); Schultz et al. (2007); Hallsworth & Kirkman (2020) |
 
-**Intervention design:** EAST (BIT), MINDSPACE (Dolan et al.), BCW Intervention Functions + 93 BCTs (Michie et al.). Includes barrier→strategy mapping tables and a design direction bridge from diagnosis to technique.
-
-**Sustainability and ethics:** SDT motivation continuum (Deci & Ryan), APEASE filter (Michie et al. — Affordable, Practicable, Effective & cost-effective, Acceptable, Side-effects/safety, Equity), Regret Test (Thaler & Sunstein), social norm backfire checklist (8 boundary conditions from Cialdini, Schultz, Hallsworth & Kirkman), friction classification, ethical mirror checkpoint, risk compensation check.
+Full bibliographic details with open-access links where available are in the [Attribution](#attribution) section below.
 
 ## Validation
 
@@ -171,19 +186,11 @@ Deliberate scope boundaries — things the skill doesn't try to do:
 
 This skill was built by one practitioner as a scaffold she herself needs. It gets better with feedback from people who actually use it on real problems.
 
-**→ [Share structured feedback (Tally form, ~2 min)](https://tally.so/r/kdRYPJ)**
-
-The form asks five things:
-
-1. **What behavior were you working on?** — a sentence is enough.
-2. **Which stage felt wrong or incomplete?** — pick from the 8 stages.
-3. **What did the skill suggest?** — copy-paste or describe.
-4. **What should it have suggested instead?** — your expert judgment or a published reference.
-5. **Your experience level with behavioral design** — so I can tell whether the skill is failing beginners, experienced practitioners, or both.
+**→ [Share feedback (Tally form, ~2 min)](https://tally.so/r/kdRYPJ)**
 
 **Other ways to reach me:**
 - **GitHub Issues** — best for specific bugs or feature requests.
-- **LinkedIn** — if you'd rather share privately: [linkedin.com/in/valeriadiatullina](https://www.linkedin.com/in/valeriadiatullina/)
+- **LinkedIn** — if you'd rather share personally: [linkedin.com/in/valeriadiatullina](https://www.linkedin.com/in/valeriadiatullina/)
 
 ## License
 
@@ -211,3 +218,4 @@ This skill synthesizes published frameworks. Full credit to the original authors
 ---
 
 *Behavioral Design Guide v1.3 — Valeriia with Claude — April 2026*
+
