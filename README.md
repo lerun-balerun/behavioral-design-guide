@@ -6,7 +6,7 @@ Sounds familiar?
 
 This skill is a thinking partner for that whole process. It walks you through a full behavioral design cycle, recommends frameworks at each step with reasoning, and supports your decisions. It's not a replacement for expertise — it's a scaffold that helps you apply what you know more systematically.
 
-Built for UX researchers, product managers, and behavioral designers who need frameworks all in one place.
+Built for UX researchers, product managers, and behavioral designers who need key BeSci frameworks all in one place.
 
 ## What It Does
 
