@@ -1,12 +1,16 @@
 # Behavioral Design Guide
 
-A structured thinking partner for behavioral design practitioners. Not a single-framework tool — a decision architecture that helps you choose the right framework for your context, work through diagnosis and design, and maintain rigor from problem definition through scaling.
+You know the behavior you want to change. You've studied multiple frameworks, maybe already tried them on your work, personal projects or life. But when you sit down to actually try to follow the behavioral design process — define the behavior precisely, find the real barriers, pick the right intervention, et cetera — the process suddenly feels...scattered. Which framework do I use here? Am I missing something in my analysis? Is this rigorous and science-based enough?
 
-Built for UX researchers, product managers, and behavioral designers who need a systematic process but don't want to memorize six frameworks and three mapping tables to use it.
+Sounds familiar?
+
+This skill is a thinking partner for that whole process. It walks you through a full behavioral design cycle, recommends frameworks at each step with reasoning, and supports your decisions. It's not a replacement for expertise — it's a scaffold that helps you apply what you know more systematically.
+
+Built for UX researchers, product managers, and behavioral designers who need a structured process but don't want to memorize six frameworks and three mapping tables to use it.
 
 ## What It Does
 
-The skill walks you through 8 stages of a behavioral design cycle. At each stage, it asks you questions, recommends a framework with reasoning, and produces a structured output before moving on.
+The skill walks you through 8 stages of a behavioral design cycle. At each stage, it asks you questions, recommends a framework with reasoning, and produces a structured output before moving on to the next step.
 
 | Stage | What happens | What you get |
 |---|---|---|
@@ -82,6 +86,33 @@ If you don't want to install a skill, paste the contents of `SKILL.md` as a syst
 
 Place the `behavioral-design-guide` folder in your repo under `.claude/skills/`. It will be available in all Claude Code sessions for that project.
 
+## Getting Started
+
+Once the skill is installed and toggled on, open a new conversation. You have two ways to activate it:
+
+**Option A — just describe your task.** Claude recognizes when the skill is relevant and activates it automatically. For example, type: *"I want to work through a behavioral design problem"* or *"Help me design an intervention for [behavior]."*
+
+**Option B — invoke directly.** Type `/` in the message field to see your available skills, then select **behavioral-design-guide**.
+
+Either way, Claude will open with something like this:
+
+> I'm a behavioral design thinking partner. I'll help you work through a full design cycle — defining the target behavior, finding what actually stops people, designing an intervention, and planning a test.
+>
+> Tell me what you can:
+>
+> 1. What behavior are you trying to change, start, or stop?
+> 2. Who needs to do it, and roughly how many?
+> 3. What's the context — a digital product, physical environment, communication, or something else?
+> 4. What data do you have — analytics, user research, surveys, or starting from scratch?
+>
+> A couple of sentences on each is enough. We'll fill gaps as we go.
+
+You don't need to answer all four questions perfectly. A rough sketch is enough — the skill will ask follow-up questions to fill gaps. For example, you might say:
+
+> *"I'm working on a health app where patients are assigned physical therapy exercises to do at home. Most patients complete the first week but drop off by week 3. We have app usage data and some NPS survey results. The behavior is completing the daily exercise routine."*
+
+From there, the skill takes you through the process one stage at a time. It'll start by tightening up your behavior definition, then map what users actually do, then check your data, and so on. At the end of each stage, it asks you to confirm before moving forward — you're always in control of the pace.
+
 ## Frameworks Used
 
 **Process design:** DECIDE (Wendel), SIDE (Wallaert). The 8-stage backbone synthesizes both with Irrational Labs process tools.
@@ -112,16 +143,21 @@ In structured walkthroughs against these 9 published cases, the skill's diagnost
 
 The `validation/` folder contains the full methodology, cases, rubric, and results.
 
-## Known Limitations
+## Known Weaknesses
 
-Things the skill does not do well, or does not do at all:
+Things the skill tries to do but doesn't do well enough yet — found through validation:
 
 - **Framing direction (loss vs. gain).** The skill defaults to loss framing in ambiguous cases. Published evidence sometimes shows gain framing wins. A framing direction checkpoint is planned for v1.4 — for now, if your intervention involves framing a message, check the evidence for your specific population and behavior before defaulting.
+- **Diagnostic depth in complex cases.** The skill produces thorough barrier inventories but can miss the single most important upstream insight. If the diagnosis feels too broad, push back — ask the skill to prioritize harder and explain which barrier it would bet on.
+
+## What's Not Covered
+
+Deliberate scope boundaries — things the skill doesn't try to do:
+
 - **Motivational Interviewing techniques.** The skill covers diagnosis and design but not the conversational techniques used in MI-based interventions. Planned for v2.
 - **Gamification depth.** The skill covers basic incentive design and crowding-out risks but not detailed gamification mechanics. Planned for v2.
 - **Advanced quasi-experimental methods.** The skill covers A/B, pre-post, ITS, and DiD at a practical level. For complex designs (regression discontinuity, synthetic control, instrumental variables), consult a statistician.
 - **Clinical interventions.** The skill is for behavioral design, not clinical practice. If the behavior change requires clinical expertise (addiction treatment, eating disorders, PTSD), consult clinical guidelines and qualified professionals.
-- **Diagnostic depth in complex cases.** Validation showed the skill produces thorough barrier inventories but can miss the single most important upstream insight. If you feel the diagnosis is too broad, push back — ask the skill to prioritize harder and explain which barrier it would bet on.
 
 ## Roadmap
 
@@ -157,20 +193,20 @@ CC BY-NC-SA 4.0 — you can share and adapt this skill for non-commercial purpos
 
 This skill synthesizes published frameworks. Full credit to the original authors:
 
-- **COM-B / BCW / BCTs / APEASE:** Michie, S., van Stralen, M. M., & West, R. (2011). The Behaviour Change Wheel: a new method for characterising and designing behaviour change interventions. *Implementation Science, 6*(1), 42. Expanded in: Michie, S., Atkins, L., & West, R. (2014). *The Behaviour Change Wheel: A Guide to Designing Interventions.* APEASE criteria for intervention appraisal are from the same source.
+- **COM-B / BCW / BCTs / APEASE:** Michie, S., van Stralen, M. M., & West, R. (2011). The Behaviour Change Wheel: a new method for characterising and designing behaviour change interventions. *Implementation Science, 6*(1), 42. [Open access](https://implementationscience.biomedcentral.com/articles/10.1186/1748-5908-6-42). Expanded in: Michie, S., Atkins, L., & West, R. (2014). *The Behaviour Change Wheel: A Guide to Designing Interventions.* APEASE criteria for intervention appraisal are from the same source.
 - **DECIDE / CREATE:** Wendel, S. (2020). *Designing for Behavior Change: Applying Psychology and Behavioral Economics* (2nd ed.). O'Reilly.
 - **SIDE / Pressure Map / Behavioral Statement:** Wallaert, M. (2019). *Start at the End: How to Build Products That Create Change.* Portfolio/Penguin. Also: Wallaert, M. (n.d.). *Free Course: Interventions.* [mattwallaert.com/free-course-4-interventions](https://mattwallaert.com/free-course-4-interventions/).
 - **Behavior change design for digital products:** Bucher, A. (2020). *Engaged: Designing for Behavior Change.* Rosenfeld Media.
 - **3B / Key Behavior / Behavioral Map:** Irrational Labs (2019). Behavioral Design Bootcamp materials. Part of the IL 3-Phase behavioral design process.
-- **EAST:** Behavioural Insights Team (2014). *EAST: Four Simple Ways to Apply Behavioural Insights.* Licensed CC BY-NC-SA 4.0. Updated edition: BIT (2024).
-- **MINDSPACE:** Dolan, P., Hallsworth, M., Halpern, D., King, D., & Vlaev, I. (2010). *MINDSPACE: Influencing Behaviour through Public Policy.* Institute for Government / Cabinet Office.
-- **SDT:** Deci, E. L., & Ryan, R. M. (2000). The "what" and "why" of goal pursuits: Human needs and the self-determination of behavior. *Psychological Inquiry, 11*(4), 227–268. [jstor.org/stable/1449618](https://www.jstor.org/stable/1449618).
+- **EAST:** Behavioural Insights Team (2014, updated 2024). *EAST: Four Simple Ways to Apply Behavioural Insights.* Licensed CC BY-NC-SA 4.0. [Free PDF](https://www.bi.team/publications/east-four-simple-ways-to-apply-behavioural-insights/).
+- **MINDSPACE:** Dolan, P., Hallsworth, M., Halpern, D., King, D., & Vlaev, I. (2010). *MINDSPACE: Influencing Behaviour through Public Policy.* Institute for Government / Cabinet Office. [Free PDF](https://www.instituteforgovernment.org.uk/publication/mindspace).
+- **SDT:** Deci, E. L., & Ryan, R. M. (2000). The "what" and "why" of goal pursuits: Human needs and the self-determination of behavior. *Psychological Inquiry, 11*(4), 227–268. [JSTOR](https://www.jstor.org/stable/1449618).
 - **B=MAP:** Fogg, B. J. (2020). *Tiny Habits: The Small Changes That Change Everything.* Houghton Mifflin Harcourt. Model originally published as B=MAT in Fogg (2009).
 - **Social norm boundary conditions:** Cialdini, R. B. (2003, 2006). Crafting normative messages to protect the environment. *Current Directions in Psychological Science.* Schultz, P. W., Nolan, J. M., Cialdini, R. B., Goldstein, N. J., & Griskevicius, V. (2007). The constructive, destructive, and reconstructive power of social norms. *Psychological Science, 18*(5), 429–434. Hallsworth, M., & Kirkman, E. (2020). *Behavioral Insights.* MIT Press.
 - **Regret Test:** Adapted from Thaler, R. H., & Sunstein, C. R. (2008). *Nudge: Improving Decisions about Health, Wealth, and Happiness.* Yale University Press.
 - **Bounded rationality:** Simon, H. A. (1955). A behavioral model of rational choice. *Quarterly Journal of Economics, 69*(1), 99–118.
 - **Dual process / heuristics and biases:** Kahneman, D., & Tversky, A. (1974). Judgment under uncertainty: Heuristics and biases. *Science, 185*(4157), 1124–1131. Kahneman, D. (2011). *Thinking, Fast and Slow.* Farrar, Straus and Giroux.
-- **Field theory:** Lewin, K. (1936). *Principles of Topological Psychology.* McGraw-Hill. B = f(Person, Environment).
+- **Field theory:** Lewin, K. (1936). *Principles of Topological Psychology.* McGraw-Hill. B = f(Person, Environment) — used in Foundations and as the basis for the 5-layer environment check at MAP.
 
 ---
 
