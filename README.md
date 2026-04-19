@@ -1,4 +1,4 @@
-# Behavioral Design Guide
+# Behavioral Design Guide - Claude Skill
 
 You know the behavior you want to change. You've studied multiple frameworks, maybe already tried them on your work, personal projects or life. But when you sit down to actually try to follow the behavioral design process — define the behavior precisely, find the real barriers, pick the right intervention, et cetera — the process suddenly feels...scattered. Which framework do I use here? Am I missing something in my analysis? Is this rigorous and science-based enough?
 
