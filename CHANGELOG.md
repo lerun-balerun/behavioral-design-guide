@@ -1,7 +1,23 @@
 # Changelog & Roadmap
 
-**Current version:** v1.3 (April 17, 2026)
+**Current version:** v1.3.1 (April 26, 2026)
 **License:** CC BY-NC-SA 4.0
+
+---
+
+## DONE in v1.3.1 — first feedback round (April 26, 2026)
+
+After publication, tested on 3 real work cases (one project with 3 different flows). Five fixes applied based on observed patterns.
+
+| ID | Fix | Source |
+|---|---|---|
+| FB1 | **Auto-routing fix in DEFINE.** Replaced "first match wins" tool selection with "present options, recommend one, let the user decide." Agent must name 2-3 fitting tools, give one-sentence trade-offs for each, recommend with a "because" tied to the user's case, and ask the user to confirm or pick differently. | First-use feedback: agent picked Wendel without offering Wallaert as alternative |
+| FB2 | **Auto-routing fix in DIAGNOSE.** Same options-first restructure for 3B vs COM-B selection. Old "framework conflict rule" lived as a long nested list with motivational complexity check as conditional fallback. Now options-first is the mandatory first step. | First-use feedback: agent auto-routed to COM-B without trade-off |
+| FB3 | **One question at a time in trade-off discussions.** New rule in Communication Style. Bans batching 5-7 substantive questions into a single message. Limit: one question for substantive trade-offs; up to three only for confirmation checks. | First-use feedback: agent overwhelmed user with 6+ question lists at start of each stage |
+| FB4 | **Wallaert Pressure Map added to DIAGNOSE routing.** Listed as a third option in the framework choice, with a concrete trigger: "consider when the case has clear competing forces — user wants to do the behavior AND something is actively pulling them away." | First-use feedback: Wallaert tools were in Quick Reference but never surfaced in stages |
+| FB5 | **"When the user pushes back — keep it short" + "Plain language in artifacts."** Two connected rules in Communication Style. First limits counter-argument length (1-2 concerns + 1 question + path forward, not 8 counter-arguments). Second bans invented compound academic terms ("pre-emptive shame-avoidance," "directional instruction gap") with concrete rewrite examples. Test: can a designer or PM understand the barrier name without asking for definition? | First-use feedback: agent generated artifacts with jargon-sounding constructions that obscured simple observations |
+
+**Version note.** v1.3 publication baseline kept unchanged — these are behavioral refinements informed by real use, not corrections to the framework or routing architecture.
 
 ---
 
