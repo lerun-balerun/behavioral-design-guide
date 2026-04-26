@@ -133,8 +133,6 @@ The skill routes you to the right framework based on your context — digital pr
 | Intervention design | **BCW Intervention Functions + BCTs** | Evidence-based mapping: 9 Intervention Functions → 93 Behaviour Change Techniques, linked to COM-B barriers | Michie, Atkins & West (2014) |
 | Sustainability & motivation | **SDT** | Three basic psychological needs (autonomy, competence, relatedness) + six-stage motivation continuum from amotivation to intrinsic | Deci & Ryan (2000) |
 | Ethics & filtering | **APEASE** | Six-criteria filter: Affordable, Practicable, Effective & cost-effective, Acceptable, Side-effects/safety, Equity | Michie, Atkins & West (2014) |
-| Ethics & filtering | **Regret Test** | Would the user, on reflection, judge themselves better off? | Adapted from Thaler & Sunstein (2008), *Nudge* |
-| Ethics & filtering | **Social norm backfire checklist** | 8 boundary conditions before using descriptive norms (prevalence, in-group, observability, boomerang risk, etc.) | Cialdini (2003, 2006); Schultz et al. (2007); Hallsworth & Kirkman (2020) |
 
 Full bibliographic details with open-access links where available are in the [Attribution](#attribution) section below.
 
