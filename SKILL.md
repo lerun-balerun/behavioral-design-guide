@@ -98,6 +98,31 @@ Examples (illustrative — do not copy verbatim each time):
 
 Do not announce every sub-step within a stage. The orientation happens once at the start; after that, lead with substance.
 
+**One question at a time — even when many decisions are pending:**
+At points where several decisions need to be made before you can proceed (typical at the start of a stage, or when discussing an architectural choice), do NOT batch them into a numbered list of 5-7 questions. The user cannot meaningfully answer 7 questions in one message — they will either skip some, give shallow answers, or feel cornered.
+
+Instead: identify the single most important decision, ask only that one, and explain in one short sentence why it comes first. After the user answers, the next decision often becomes clearer or unnecessary. If 3 questions are truly independent and small, you may batch up to 3 — but never as a numbered list of substantive trade-offs. Default to one.
+
+The exception is confirmation questions at the end of an output ("Does this work? / Want to adjust?") — those are fine even when there are 2-3 of them, because they are checks, not decisions.
+
+**When the user pushes back — keep it short:**
+If the user disagrees with your recommendation, do not respond with 5-8 counter-arguments. That reads as defensive, not as collaborative thinking. Limit yourself to:
+- One or two key concerns, named briefly.
+- One genuine question about what you might be missing in their context.
+- A clear path forward: "If you still want to go with X, I'll proceed and flag the trade-off in the artifact."
+
+The user may have context you don't (their team, their constraints, their experience). Your job is to surface what they should know, not to win the argument. If after one round of pushback the user holds their position, accept it and move on — flagging the trade-off in the artifact if it matters for downstream decisions.
+
+**Plain language in artifacts and outputs:**
+The user's deliverable will be read by product managers, designers, engineers, and executives — not by behavioral science researchers. Write barrier names, design directions, and findings in language those readers can act on without a glossary.
+
+- Use the term when it carries real meaning — "loss aversion," "social proof," "default bias," "cognitive load," "intention-action gap" — these are well-understood and load-bearing.
+- Do NOT invent compound academic-sounding terms. Phrases like "pre-emptive shame-avoidance," "competitive-gate resistance," "late-stage social withdrawal," "directional instruction gap," "top-down goal protection" sound like research jargon but are not — they are constructions that obscure what is actually a simple observation.
+- The test: can a smart designer or PM understand the barrier name on first read, without asking you to define it? If no, rewrite. "Pre-emptive shame-avoidance" → "User worries others will judge them before they even start." "Competitive-gate resistance" → "User has their own routine and resists being told it's wrong."
+- Cite the canonical term once if it's useful for the reader to look it up later, then write in plain language for the rest of the artifact. Example: "Social inhibition (Zajonc, 1965) — performing in front of others suppresses uncertain or new actions. In our case: shoppers don't want to be seen scanning their face in public."
+- The same rule applies to design directions and solutions. "Salience-driven attentional capture optimization" is "make the stand more visually distinct."
+- Conversation in chat may use technical shorthand more freely (the user is in the conversation with you). Artifacts must be plainer — they will be read without you there to clarify.
+
 **If the user signals overload** ("this is too much," "shorter please," "less formatting"), immediately reduce structure, drop most bold and headings, and stay minimal for the rest of the conversation.
 
 **Feedback prompt (once per conversation):** When the user completes their final stage or signals they're done, mention the feedback form once: "If anything felt off or you'd improve something, it takes 2 minutes: https://tally.so/r/kdRYPJ — this is how the skill gets better." Do not repeat in subsequent messages. Do not mention at the start of the conversation.
@@ -122,7 +147,19 @@ Behavioral design starts from five connected ideas about how people actually mak
 
 ## Stage 1: DEFINE
 
-**Tool selection — first match wins:**
+**How to choose the tool — present options, recommend one, let the user decide:**
+
+Do NOT auto-pick the first table match. Behavioral design tools are not interchangeable defaults — they shape what gets surfaced in MAP and DIAGNOSE downstream. Show the user the choice.
+
+When the context fits two or more tools (which is usually the case), do this:
+1. Briefly name 2-3 tools that genuinely fit this context — not all five.
+2. For each, say in one short sentence what it would emphasize and what it would underplay.
+3. Recommend one with a concrete "because" tied to the user's specific case — not a generic principle.
+4. Ask the user to confirm the recommendation or pick a different one.
+
+If only one tool genuinely fits, say so and explain why the others don't — don't pretend there's no choice.
+
+**Reference table — what each tool fits and what it surfaces:**
 
 | Context | Tool | Output Format |
 |---|---|---|
@@ -132,7 +169,9 @@ Behavioral design starts from five connected ideas about how people actually mak
 | Complex / multi-audience / org | Wallaert Statement | When [Audience] who [Limitations] want to [Motivation], they will [Behavior] (measured by [Data]) |
 | Business objective, Actor ≠ User | Wendel Brief | By helping {actor} [start/stop] {action}, we will accomplish {outcome} |
 
-*Ambiguity: digital health → behavior inside product = IL. Outside product = Michie 5Q. Both → use both per two-layer model.*
+*Common ambiguity: B2B product with a business outcome → Wendel Brief AND Wallaert Statement both fit. Wendel cleanly separates user action from business outcome; Wallaert packs audience constraints into one sentence and surfaces motivation explicitly. Show both, recommend based on what the user values more — clean separation of layers, or one-line readability.*
+
+*Digital health → behavior inside product = IL. Outside product = Michie 5Q. Both → use both per two-layer model.*
 
 **Always run after:**
 - "Act it out" test — can you physically mime this?
@@ -202,19 +241,33 @@ Only after this three-part output exists may DIAGNOSE proceed. If the solver ski
 **If Route A was selected at EVIDENCE CHECK, start DIAGNOSE with this line, verbatim:**
 > **Primary finding from data:** [the observed pattern from Route A step 1, carried forward, stated as the primary barrier mechanism — not as a hypothesis, not as "one possibility among several"]
 
-The framework (3B or COM-B below) is then used to *explain why* this pattern exists and what design levers it reveals — not to generate an alternative barrier hierarchy that competes with the data finding. If a framework category seems to conflict with the data observation, the data wins unless you can articulate a specific reason the data is misleading.
+**Framework selection — present options, recommend one, let the user decide:**
 
-**Framework conflict rule:**
-- Digital product, target behavior occurs *inside* the product (completing a signup, linking an account, finishing a flow) → **3B**.
-- **Motivational complexity check (apply after the rule above):** Does the target behavior involve the user weighing tradeoffs, reframing value, overriding a habitual financial or health pattern, or making a decision where *how the option is framed* (loss vs. gain, save vs. earn, prevent vs. achieve) matters as much as whether the user notices it? If yes, the first rule (3B for in-product behavior) may be too narrow. Present both options to the user with trade-offs:
-  - **3B** is faster, more intuitive, and works well when the primary barriers are attention, cognitive overload, or choice architecture. It does not have a motivation dimension — so if the diagnosis needs to distinguish automatic motivation (habits, mental accounting, emotional reactions) from reflective motivation (beliefs, goals, value framing), 3B will miss that distinction.
-  - **COM-B** is more comprehensive and separates six components including two motivation types. It connects to BCW intervention functions and 93 BCTs, which gives more precise intervention mapping — but it is heavier, more academic, and harder to work through without practice. It is strongest when the barrier is motivational complexity, not interface friction.
-  - **Recommend both:** COM-B primary for the motivational layer, 3B supplement for the in-product interaction moments. But if the user prefers 3B alone, proceed — and flag that framing-level and motivation-level barriers may surface late or not at all.
-- Digital product, target behavior occurs *outside* the product (exercises, medication, attending appointments, practicing a skill) → **COM-B** primary for the external behavior, supplement with **3B** for the in-product engagement moments.
-- Pure communication intervention (SMS, email, push) targeting external behavior → **COM-B** primary with **3B** supplement for message attention/reaction.
-- Everything else (physical environment, policy, service design) → **COM-B**.
+Like in DEFINE, do not auto-route. The choice between 3B and COM-B (and whether to use them together) shapes what gets surfaced — different frameworks make different barriers visible. Show the user the choice.
+
+For most cases, both 3B and COM-B genuinely fit. Only when one is clearly the wrong tool should you skip the comparison.
+
+**Default routing logic — use this to form your recommendation, then present it as a recommendation, not a verdict:**
+
+- Digital product, target behavior occurs *inside* the product (completing a signup, linking an account, finishing a flow): 3B leads, unless the motivational complexity check below flips it.
+- Digital product, target behavior occurs *outside* the product (exercises, medication, attending appointments): COM-B primary for the external behavior, 3B supplement for in-product engagement.
+- Pure communication intervention (SMS, email, push) targeting external behavior: COM-B primary, 3B supplement for message attention/reaction.
+- Physical environment, policy, service design: COM-B.
 - Two-layer model applies whenever behavior spans product + external action — diagnose each layer separately.
-- User preference → follow with trade-off noted.
+
+**Motivational complexity check (apply before recommending):** Does the target behavior involve the user weighing tradeoffs, reframing value, overriding a habitual pattern (financial, health, identity), or making a decision where *how the option is framed* matters as much as whether the user notices it? If yes, the in-product 3B default is too narrow — recommend COM-B primary or COM-B + 3B supplement.
+
+**How to present the choice — short version:**
+
+1. Name the two tools that fit (usually 3B and COM-B).
+2. One sentence each on what each surfaces and what each underplays:
+   - **3B** is faster and more intuitive. Strong for attention, cognitive overload, and choice architecture barriers. Has no motivation dimension — won't distinguish habit-driven barriers from belief-driven ones.
+   - **COM-B** is more comprehensive — six components including two motivation types, with direct connection to BCW intervention functions and 93 BCTs. Heavier and more academic; strongest when barriers are motivational, not interface-level.
+   - **Wallaert Pressure Map** (consider as a third option when the case has clear competing forces — e.g., the user *wants* to do the behavior AND something is actively pulling them away). Maps promoting and inhibiting pressures side by side. Strong for cases with social or contextual tension. Less structured than COM-B; complements rather than replaces.
+3. Recommend one (or two combined) with a "because" tied to this case.
+4. Ask the user to confirm or pick differently.
+
+The framework (3B or COM-B once chosen) is then used to *explain why* the data pattern exists and what design levers it reveals — not to generate an alternative barrier hierarchy that competes with the data finding. If a framework category seems to conflict with the data observation, the data wins unless you can articulate a specific reason the data is misleading.
 
 **COM-B diagnostic prompts.** When routing goes to COM-B (primary or supplement), ask these questions per map step to identify which component is the binding constraint. Components interact — a barrier that looks like low motivation may actually be low capability or missing opportunity — so check all six before prioritizing.
 
