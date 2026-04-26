@@ -1,13 +1,13 @@
 # Changelog & Roadmap
 
-**Current version:** v1.3.1 (April 26, 2026)
+**Current version:** v1.4 (April 26, 2026)
 **License:** CC BY-NC-SA 4.0
 
 ---
 
-## DONE in v1.3.1 — first feedback round (April 26, 2026)
+## DONE in v1.4 — first feedback round (April 26, 2026)
 
-After publication, tested on 3 real work cases (one project with 3 different flows). Five fixes applied based on observed patterns.
+After publication, tested on 3 real work cases (one project with 3 different flows). Six fixes applied based on observed patterns. FB1-FB5 are behavioral refinements; FB6 is a structural change to the stage architecture.
 
 | ID | Fix | Source |
 |---|---|---|
@@ -16,8 +16,9 @@ After publication, tested on 3 real work cases (one project with 3 different flo
 | FB3 | **One question at a time in trade-off discussions.** New rule in Communication Style. Bans batching 5-7 substantive questions into a single message. Limit: one question for substantive trade-offs; up to three only for confirmation checks. | First-use feedback: agent overwhelmed user with 6+ question lists at start of each stage |
 | FB4 | **Wallaert Pressure Map added to DIAGNOSE routing.** Listed as a third option in the framework choice, with a concrete trigger: "consider when the case has clear competing forces — user wants to do the behavior AND something is actively pulling them away." | First-use feedback: Wallaert tools were in Quick Reference but never surfaced in stages |
 | FB5 | **"When the user pushes back — keep it short" + "Plain language in artifacts."** Two connected rules in Communication Style. First limits counter-argument length (1-2 concerns + 1 question + path forward, not 8 counter-arguments). Second bans invented compound academic terms ("pre-emptive shame-avoidance," "directional instruction gap") with concrete rewrite examples. Test: can a designer or PM understand the barrier name without asking for definition? | First-use feedback: agent generated artifacts with jargon-sounding constructions that obscured simple observations |
+| FB6 | **EVIDENCE CHECK promoted to Stage 2 and expanded.** Previously a routing checkpoint between MAP and DIAGNOSE. Now a full stage running before MAP, with three parts: (1) what data the user has, (2) what gaps matter and how to handle them, (3) behavior-level literature baseline — what's generally known about this category of behavior. Intervention-level literature stays in DESIGN, paired to specific diagnosed barriers. Stage numbering updated throughout: DEFINE (1) → EVIDENCE CHECK (2) → MAP (3) → DIAGNOSE (4) → DESIGN (5) → OPTIMIZE (5b) → TEST (6) → ANALYZE (7) → SCALE (8). | First-use feedback: MAP and DIAGNOSE built on hypothesis stacks because evidence baseline wasn't established first; literature support was missing throughout |
 
-**Version note.** v1.3 publication baseline kept unchanged — these are behavioral refinements informed by real use, not corrections to the framework or routing architecture.
+**Version note.** Bumped to v1.4 (not v1.3.1) because FB6 is a structural change — stage order and EVIDENCE CHECK scope have changed, not just behavior. FB1-FB5 alone would have been v1.3.1.
 
 ---
 
