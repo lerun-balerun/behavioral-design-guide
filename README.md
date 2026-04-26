@@ -14,11 +14,11 @@ The skill walks you through 8 stages of a behavioral design cycle. At each stage
 
 | Stage | What happens | What you get |
 |---|---|---|
-| **DEFINE** | Nail down exactly what behavior you're changing, for whom, and when. The skill picks the right definition tool for your context and tests whether the behavior is specific enough to design for. | A precise, measurable behavior statement that passes the "can you physically mime this?" test. |
-| **MAP** | Walk through what users actually do today, step by step. At each step, the skill asks what could go wrong and what data you have. | A behavioral map with barrier hypotheses at each step, plus a check that you haven't missed a layer of context (physical, social, structural). |
-| **EVIDENCE CHECK** | Figure out whether you have enough data to diagnose, or need to collect first. If you have data, the skill forces you to state what the data shows before any framework is applied. | A routing decision (data-first, adjacent data, collect, or hypothesis-based) and, if data exists, a three-part summary: what the data shows, what it implies, and what it doesn't tell you. |
-| **DIAGNOSE** | Find the real barriers — not just the obvious ones. The skill routes you to COM-B or 3B based on your context, walks through each component with diagnostic questions, and helps you prioritize. | A ranked barrier list with evidence quality noted for each one. The top barrier is the design target. |
-| **DESIGN** | Turn the top barrier into a concrete intervention. The skill maps barriers to strategies, cross-checks against EAST, filters through APEASE ethics criteria, and helps you write a testable hypothesis. | An intervention package with a clear hypothesis: "If [intervention] among [segment], then [metric will change], because [mechanism]." |
+| **DEFINE** | Nail down exactly what behavior you're changing, for whom, and when. The skill names 2-3 definition tools that fit your case, gives trade-offs for each, recommends one with reasoning, and lets you confirm or pick differently. | A precise, measurable behavior statement that passes the "can you physically mime this?" test. |
+| **EVIDENCE CHECK** | Establish what you know and don't know about this behavior — *before* mapping or diagnosing. The skill asks what data you have (analytics, research, prior tests, domain knowledge), names 1-3 useful gaps, and gives a baseline of what published evidence says about this category of behavior. | A short summary you can refer back to: what data exists, what gaps matter and how to handle them, what's known about this behavior at population level, and — if you have diagnostic data — a three-part data summary that anchors the diagnosis. |
+| **MAP** | Walk through what users actually do today, step by step. At each step, the skill asks what could go wrong and tags each barrier hypothesis with its source (data, adjacent data, literature, or hypothesis only). | A behavioral map with sourced barrier hypotheses at each step, plus a check that you haven't missed a layer of context (physical, social, structural). |
+| **DIAGNOSE** | Find the real barriers. The skill names the diagnostic frameworks that fit your case (typically 3B and COM-B, sometimes Wallaert Pressure Map for cases with competing forces), gives trade-offs for each, recommends one or a combination, and lets you choose. Then walks through the chosen framework with diagnostic questions and helps you prioritize. | A ranked barrier list with evidence quality noted for each one. The top barrier is the design target. |
+| **DESIGN** | Turn the top barriers into concrete interventions. Starts with a quick scan of what has worked elsewhere for these specific barriers, then maps barriers to strategies, cross-checks against EAST, filters through APEASE ethics criteria, and helps you write a testable hypothesis. | An intervention package with a clear hypothesis: "If [intervention] among [segment], then [metric will change], because [mechanism]." |
 | **OPTIMIZE** | Check whether the intervention will sustain and whether it could backfire. Includes SDT motivation check, social norm boundary conditions, friction classification, ethical mirror, and risk compensation. | A checked intervention with backfire risks flagged and mitigations designed. |
 | **TEST** | Design the experiment. The skill picks the right method for your sample size and constraints, and walks you through a pre-analysis plan. | An experiment design with hypothesis, primary metric, sample size, duration, and stopping rule documented before you run anything. |
 | **ANALYZE → SCALE** | Interpret results honestly (with trustworthiness checks before conclusions), then plan implementation — distinguishing system changes that scale instantly from practice changes that require buy-in. | A one-page results summary and a scaling plan with context sensitivity, effect decay, and fidelity checks. |
@@ -124,8 +124,8 @@ The skill routes you to the right framework based on your context — digital pr
 | Process design | **DECIDE** | Full behavioral design cycle: Define → Explore → Craft → Implement → Determine → Evaluate | Wendel (2020), *Designing for Behavior Change* |
 | Process design | **SIDE** | Strategy → Insights → Design → Evaluation, with named deliverables at each stage | Wallaert (2019), *Start at the End* |
 | Barrier diagnosis | **COM-B / BCW** | Six components: Physical/Psychological Capability, Physical/Social Opportunity, Automatic/Reflective Motivation | Michie, van Stralen & West (2011); Michie, Atkins & West (2014) |
-| Barrier diagnosis | **3B** | Behavior + Barriers + Benefits.| Irrational Labs (2019) |
-| Barrier diagnosis | **B=MAP** | Behavior = Motivation × Ability × Prompt. | Fogg (2009, 2020), *Tiny Habits* |
+| Barrier diagnosis | **3B** | Behavior + Barriers + Benefits. Four barrier categories: Attention, Cognitive Overload, Status Quo, Mental Models | Irrational Labs (2019) |
+| Barrier diagnosis | **B=MAP** | Behavior = Motivation × Ability × Prompt. Used for prompt type design (Spark / Facilitator / Signal) | Fogg (2009, 2020), *Tiny Habits* |
 | Barrier diagnosis | **CREATE** | Six-step action funnel: Cue → Reaction → Evaluation → Ability → Timing → Experience | Wendel (2020) |
 | Barrier diagnosis | **Wallaert Pressure Map** | Maps competing promoting and inhibiting pressures on a behavior | Wallaert (2019) |
 | Intervention design | **EAST** | Four design principles: Easy, Attractive, Social, Timely. Used as design-quality cross-check | Behavioural Insights Team (2014, updated 2024) |
@@ -186,11 +186,19 @@ Deliberate scope boundaries — things the skill doesn't try to do:
 
 This skill was built by one practitioner as a scaffold she herself needs. It gets better with feedback from people who actually use it on real problems.
 
-**→ [Share feedback (Tally form, ~2 min)](https://tally.so/r/kdRYPJ)**
+**→ [Share structured feedback (Tally form, ~2 min)](https://tally.so/r/kdRYPJ)**
+
+The form asks five things:
+
+1. **What behavior were you working on?** — a sentence is enough.
+2. **Which stage felt wrong or incomplete?** — pick from the 8 stages.
+3. **What did the skill suggest?** — copy-paste or describe.
+4. **What should it have suggested instead?** — your expert judgment or a published reference.
+5. **Your experience level with behavioral design** — so I can tell whether the skill is failing beginners, experienced practitioners, or both.
 
 **Other ways to reach me:**
 - **GitHub Issues** — best for specific bugs or feature requests.
-- **LinkedIn** — if you'd rather share personally: [linkedin.com/in/valeriadiatullina](https://www.linkedin.com/in/valeriadiatullina/)
+- **LinkedIn** — if you'd rather share privately: [linkedin.com/in/valeriadiatullina](https://www.linkedin.com/in/valeriadiatullina/)
 
 ## License
 
@@ -218,4 +226,3 @@ This skill synthesizes published frameworks. Full credit to the original authors
 ---
 
 *Behavioral Design Guide v1.3 — Valeriia with Claude — April 2026*
-
