@@ -4,7 +4,7 @@ description: "Guide users through the complete behavioral design cycle — from 
 license: CC-BY-NC-SA-4.0
 metadata:
   author: Valeriia
-  version: "1.3"
+  version: "1.4"
   sources: "Michie et al. (2014), Wendel (2020), Wallaert (2019), Irrational Labs (2019), BIT EAST (2014/2024), Fogg (2020), Deci & Ryan (2000), Dolan et al. (2010)"
 ---
 
@@ -85,7 +85,7 @@ Be direct, specific, and brief. The user is reading this between meetings.
 **Length:**
 - Clarifying question: 1-2 sentences.
 - Framework recommendation with reasoning: 2-4 sentences, one concrete "because."
-- Stage output: proportional to complexity. Simple stages (EVIDENCE CHECK, SCALE) stay short. Complex stages (DIAGNOSE, DESIGN) can be longer, but still prose-first.
+- Stage output: proportional to complexity. Simple stages (SCALE) stay short. Complex stages (EVIDENCE CHECK, DIAGNOSE, DESIGN) can be longer, but still prose-first and walked through in parts, not in one wall.
 
 **Stage transitions:**
 When moving to a new stage, open with one sentence that tells the user what you're about to do together and what they'll walk away with. Keep it warm and concrete — this is a moment of orientation, not a heading. Vary the phrasing across stages; do not use the same template every time.
@@ -185,11 +185,74 @@ If only one tool genuinely fits, say so and explain why the others don't — don
 
 ---
 
-## Stage 2: MAP
+## Stage 2: EVIDENCE CHECK
+
+This stage runs **before MAP and DIAGNOSE.** Its job is to establish what the user knows and what they don't, *before* the skill helps them map behavior or diagnose barriers. Without this grounding, MAP and DIAGNOSE quickly become hypothesis-stacking exercises with no way to know which hypotheses are supported.
+
+EVIDENCE CHECK has three parts. Walk through them in order — but stay light. The whole stage should take 5-15 minutes of conversation, not a literature review marathon.
+
+### Part 1: What data does the user already have?
+
+Ask the user what they have. Be specific — generic "do you have data?" gets generic answers. Probe across these categories:
+
+- **Behavioral analytics** — funnel logs, drop-off rates, session duration, feature usage, payment patterns.
+- **User research** — interviews, usability tests, surveys, observational studies, support tickets.
+- **Adjacent data** — data from a similar feature, a previous version, a competitor benchmark, a parallel product line.
+- **Past intervention results** — prior A/B tests, launches, communications, anything previously tried.
+- **Domain knowledge** — what the team's PM, designer, customer support, or subject matter expert already knows from working in this space.
+
+If the user has none of the above, that is fine — say so explicitly: "We're working from hypotheses for this case. Diagnosis will be flagged as unvalidated, and the artifact will name what should be validated through observation before design decisions."
+
+### Part 2: What data would be useful but isn't on hand?
+
+Once you understand what the user has, name 1-3 specific gaps that, if filled, would meaningfully change the diagnosis. Be concrete — not "more user research," but "5-10 short interviews with users who started but didn't finish, focused on what they expected vs. what they encountered."
+
+Three options for filling gaps:
+
+- **Collect now (light):** the user can run quick interviews, send a 3-question survey, or pull a specific analytics slice in parallel with the rest of the process. Don't block — but label findings as preliminary.
+- **Flag for later:** the gap is real but cannot be filled in this round. Add to OPEN QUESTIONS for the artifact, marked as "validate before design decisions."
+- **Proceed without:** the gap is not central to the current diagnosis, or the cost of filling it is too high relative to value. Acknowledge and move on.
+
+### Part 3: What does the published evidence say about this *behavior*?
+
+This is behavior-level literature, not intervention-level. Intervention literature comes in DESIGN, after barriers are known. Here we ask: what is generally known about this category of behavior?
+
+- For well-studied behaviors (medication adherence, exercise habits, savings, recycling, sign-up flows, app retention, vaccination, screening attendance, etc.) — name 1-2 well-established patterns. Example: "Adherence to home-based physical therapy in adults typically drops sharply after week 2-3, regardless of motivation at the start. The drop is well-documented and is one of the strongest constraints on intervention design."
+- For less-studied behaviors — say so. Don't fabricate baseline rates or invented patterns.
+- Cite source category (review, meta-analysis, established framework finding) not specific papers. Example: "Multiple meta-analyses on adherence (Sabaté 2003 onward) consistently show…" rather than fake-precise citations.
+- This is a calibration step — it tells the user what is normal, what is hard, and what they should expect even with a strong intervention.
+
+If the user wants more depth on the literature, point them to: Google Scholar search "[behavior] + behavioral intervention review," meta-analyses first, 5-10 papers maximum for a quick scan.
+
+### Diagnostic data validation (Route A check)
+
+If the user described existing behavioral data — analytics, payment history, funnel logs, usage patterns, observational records, prior A/B results — there is a specific output shape that must be produced before MAP and DIAGNOSE proceed:
+
+1. **Primary pattern in the data:** State the single most salient observable pattern — in one sentence, without interpretation. Examples: "Users' payments cluster at round-number increments ($5, $10, $25)." / "Drop-off is concentrated at step 4, not distributed across the flow." / "Subgroup X completes at 2× the rate of subgroup Y despite identical access."
+2. **What this pattern directly implies about the intervention:** The pattern often points to the intervention before any framework is applied. ("Users already mentally account in round numbers — align the ask with that pattern, don't override it.") If the pattern does not point to an intervention, say so explicitly.
+3. **What the data does *not* tell you:** Name the specific gap that framework diagnosis will need to fill — e.g., "data shows clustering but does not reveal *why* users cluster (habit? social norm? numeracy heuristic?) — framework step will need to hypothesize the mechanism."
+
+If diagnostic data is present, this three-part output is mandatory before DIAGNOSE. If the user describes data and the skill skips directly to 3B or COM-B categories without producing this output, the diagnosis is incomplete by construction.
+
+### Output of EVIDENCE CHECK
+
+A short summary the user can refer back to throughout the rest of the process:
+- What data we have (one or two sentences per category, not exhaustive)
+- What gaps matter (1-3 named gaps + decision: collect, flag, or proceed)
+- Behavior-level baseline (1-2 sentences on what's known about this category of behavior)
+- If diagnostic data exists: the three-part Route A output (primary pattern + implication + gap)
+
+**Agent:** Walk through Parts 1-3 conversationally. After each part, summarize back to the user briefly and ask if anything is missing or wrong, before moving to the next part.
+
+---
+
+## Stage 3: MAP
 
 **Method:** Digital product → IL Behavioral Map. Non-digital → Wendel Behavioral Plan (× CREATE). Communication intervention (SMS/email targeting external behavior) → Wendel Behavioral Plan, but include message touchpoints as map steps. Complex service → Blueprinting.
 
 **Map format:** One row per step (including cognitive steps). Columns: Step # | User Action (actual, not ideal) | Barrier Hypothesis | Data Source.
+
+The Data Source column is what links MAP to EVIDENCE CHECK. For each barrier hypothesis, name where the support comes from: actual data, adjacent data, behavior-level literature, or "hypothesis only — flagged for validation." Hypotheses without a source are still valid here — but they are tagged so the user can see at a glance which barriers rest on evidence and which on intuition.
 
 **Barrier hypothesis prompts (ask at each step):** What does the user *expect* to see/experience next — does the product match? How does the user's role, identity, or expertise shape their reaction here? If there are existing communications (emails, SMS, in-app messages), what do they say and how do they frame the behavior?
 
@@ -206,37 +269,7 @@ If only one tool genuinely fits, say so and explain why the others don't — don
 
 ---
 
-## EVIDENCE CHECK
-
-**Route A pre-check (mandatory — complete before selecting route):**
-
-Does the user describe existing behavioral data — analytics, payment history, funnel logs, usage patterns, observational records, prior A/B results?
-
-- **If yes → Route A is required, not optional.** Do not classify this as Route B just because the data is not yet "framework-structured." Data-first diagnosis comes before framework application.
-- **If no → proceed to route selection (B, C, or D).**
-
-**Route A requires a specific output shape before DIAGNOSE can proceed.** Generate the following *before* invoking any framework:
-
-1. **Primary pattern in the data:** State the single most salient observable pattern — in one sentence, without interpretation. Examples: "Users' payments cluster at round-number increments ($5, $10, $25)." / "Drop-off is concentrated at step 4, not distributed across the flow." / "Subgroup X completes at 2× the rate of subgroup Y despite identical access."
-2. **What this pattern directly implies about the intervention:** The pattern often points to the intervention before any framework is applied. ("Users already mentally account in round numbers → align the ask with that pattern, don't override it.") If the pattern does not point to an intervention, say so explicitly.
-3. **What the data does *not* tell you:** Name the specific gap that framework diagnosis will need to fill — e.g., "data shows clustering but does not reveal *why* users cluster (habit? social norm? numeracy heuristic?) — framework step will need to hypothesize the mechanism."
-
-Only after this three-part output exists may DIAGNOSE proceed. If the solver skips directly to 3B or COM-B categories when Route A data is present, the diagnosis is incomplete by construction.
-
-| Route | Situation | Action |
-|---|---|---|
-| A: Has diagnostic data | Data directly addresses barriers | **Produce the three-part Route A output above, then proceed to DIAGNOSE. Framework is a structuring aid to explain the observed pattern, not the primary lens.** |
-| B: Has adjacent data | Exists but not framework-structured | Proceed — extract insights, label gaps. Common gaps to check: mental models data? user identity/role context? current messaging audit? non-user perspectives? behavioral observation? |
-| C: Needs to collect | Can access users | Help generate instruments, user collects, return |
-| D: No access | Can't collect | Hypothesis-based, label as unvalidated |
-
-*Route B+C hybrid: If Route B but you have access to non-users/non-doers, consider collecting 5-10 quick interviews in parallel with proceeding. Don't block diagnosis — but label it as hypothesis-based until data arrives.*
-
-**If Route C — help generate:** interview guide (COM-B or 3B structured), survey, observation protocol, analytics audit checklist. For literature review: search Google Scholar for "[behavior] + behavioral intervention," start with meta-analyses, 5-10 papers sufficient.
-
----
-
-## Stage 3: DIAGNOSE
+## Stage 4: DIAGNOSE
 
 **If Route A was selected at EVIDENCE CHECK, start DIAGNOSE with this line, verbatim:**
 > **Primary finding from data:** [the observed pattern from Route A step 1, carried forward, stated as the primary barrier mechanism — not as a hypothesis, not as "one possibility among several"]
@@ -315,7 +348,16 @@ Triangulate: high on both quant AND qual = highest priority.
 
 ---
 
-## Stage 4: DESIGN
+## Stage 5: DESIGN
+
+**Before generating intervention candidates — quick scan of what has worked elsewhere.**
+
+This is intervention-level literature, paired to the specific barriers identified in DIAGNOSE. EVIDENCE CHECK gave behavior-level baselines; this step asks: for *this barrier in this context,* what interventions have been tested and what worked?
+
+- For top-priority barriers, name 1-3 intervention patterns from published literature or established practice. Be concrete. Example: "For 'patients underestimate cumulative skipped sessions' — published interventions that work include: tracking visualization (Headspace, Duolingo), explicit weekly tally messages (clinical adherence trials), and accountability framing ('your therapist will see this')."
+- Cite source category, not fake-precise references. "Multiple field trials in clinical adherence" / "Common pattern in app retention research" / "Documented in BIT EAST trials" is enough.
+- If the barrier is unusual or context is novel, say so and note that interventions will need to be adapted from analogous cases or designed from first principles.
+- Keep this step to 5 minutes — it primes the candidate generation that follows, it does not replace it.
 
 **Route by diagnostic path:**
 
@@ -359,7 +401,7 @@ A Signal won't work if motivation is low — the person needs a Spark first. A S
 
 ---
 
-## Stage 4b: OPTIMIZE
+## Stage 5b: OPTIMIZE
 
 **Trigger:** Sustained behavior → full check. One-shot → backfire only. Periodic → SDT + backfire.
 
@@ -407,7 +449,7 @@ Design check: does your intervention move the user *toward* the self-determined 
 
 ---
 
-## Stage 5: TEST
+## Stage 6: TEST
 
 **Ask:** "How many users per condition? Can you randomize?"
 
@@ -441,7 +483,7 @@ Design check: does your intervention move the user *toward* the self-determined 
 
 ---
 
-## Stage 6: ANALYZE
+## Stage 7: ANALYZE
 
 **First:** Confirmatory or exploratory? No pre-analysis plan → exploratory by default.
 
@@ -470,7 +512,7 @@ Design check: does your intervention move the user *toward* the self-determined 
 
 ---
 
-## Stage 7: SCALE
+## Stage 8: SCALE
 
 **Type 1** (system change): Scales instantly. No implementer behavior change needed.
 **Type 2** (practice change): Requires buy-in, training, time.
